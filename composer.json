@@ -1,0 +1,12 @@
+{
+    "name": "i4erkasov/drom-test-sum-count",
+    "description": "test app sum count",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Ivan Cherkasov",
+            "email": "i.4erkasov@gmail.com"
+        }
+    ],
+    "require": {}
+}

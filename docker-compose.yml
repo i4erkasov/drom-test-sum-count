@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  app-php-cli:
+    build:
+      context: .
+      dockerfile: docker/php-cli/Dockerfile
+      args:
+        UID: "${uid}"
+        GID: "${gid}"
+    volumes:
+      - ./:/var/www
