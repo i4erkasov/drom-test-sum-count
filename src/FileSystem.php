@@ -35,12 +35,6 @@ class FileSystem
 
         /** @var $files \SplFileInfo[] */
         foreach ($files as $file) {
-            if (is_dir($file->getRealPath())) {
-                $this->dir = $file->getRealPath();
-
-                array_map([$this, __FUNCTION__], $this->scan());
-            }
-
             if ($file->getFilename() === $fileName) {
                 $this->searchResults[] = new File($file->getRealPath());
             }
@@ -57,7 +51,9 @@ class FileSystem
     public function scan(): array
     {
         $files = new \RecursiveIteratorIterator(
-            new \RecursiveDirectoryIterator($this->dir, \RecursiveDirectoryIterator::SKIP_DOTS),
+            new \RecursiveDirectoryIterator(
+                $this->dir, \RecursiveDirectoryIterator::SKIP_DOTS
+            ),
         );
 
         foreach ($files as $file) {
