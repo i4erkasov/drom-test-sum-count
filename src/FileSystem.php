@@ -50,16 +50,12 @@ class FileSystem
      */
     public function scan(): array
     {
-        $files = new \RecursiveIteratorIterator(
+        $iterator = new \RecursiveIteratorIterator(
             new \RecursiveDirectoryIterator(
                 $this->dir, \RecursiveDirectoryIterator::SKIP_DOTS
             ),
         );
 
-        foreach ($files as $file) {
-            $scan[] = $file;
-        }
-
-        return $scan ?? [];
+        return iterator_to_array($iterator, false);
     }
 }
