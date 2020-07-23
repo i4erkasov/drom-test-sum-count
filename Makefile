@@ -23,3 +23,6 @@ docker-build:
 composer-install:
 	export uid=$(uid) gid=$(gid); \
 	docker-compose -f ./docker-compose.yml run --rm app-php-cli composer install
+
+test:
+	docker-compose -f ./docker-compose.yml run --rm app-php-cli php bin/console.php sum ted path=123
