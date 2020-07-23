@@ -21,6 +21,8 @@ abstract class Command
     }
 
     /**
+     * Метод возращает список всех параметров
+     *
      * @return array
      */
     protected function getParams(): array
@@ -33,6 +35,8 @@ abstract class Command
     }
 
     /**
+     * Метод возвращает значение параметра по имени
+     *
      * @param string $name
      *
      * @return string|null
